@@ -1,12 +1,12 @@
-﻿namespace Northwind.EB.Sales.DTOs;
+﻿namespace Northwind.EB.Sales.Entities.DTOs;
 public class CreateOrderDto
 {
     public string CustomerId { get; }
     public string ShipAddress { get; }
-    public string ShipCity { get;  }
-    public string ShipCountry { get;  }
-    public string ShipPostalCode { get;  }
-    public List<CreateOrderDetailDto> OrderDetails { get;  }
+    public string ShipCity { get; }
+    public string ShipCountry { get; }
+    public string ShipPostalCode { get; }
+    public List<CreateOrderDetailDto> OrderDetails { get; }
 
     public CreateOrderDto(
         string customerId,

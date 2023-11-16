@@ -9,7 +9,7 @@ public class OrderAggregate : Order
     {
         var existingOrderDetail = _orderDetails.FirstOrDefault(o => o.ProductId == productId);
 
-        if(existingOrderDetail != default)
+        if (existingOrderDetail != default)
         {
             quantity += existingOrderDetail.Quantity;
             _orderDetails.Remove(existingOrderDetail);

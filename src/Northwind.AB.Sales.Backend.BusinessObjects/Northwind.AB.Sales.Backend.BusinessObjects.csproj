@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Northwind.EB.Sales\Northwind.EB.Sales.Entities.csproj" />
+    <ProjectReference Include="..\Northwind.EB.Sales.Entities\Northwind.EB.Sales.Entities.csproj" />
   </ItemGroup>
 
 </Project>

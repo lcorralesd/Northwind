@@ -1,4 +1,4 @@
-﻿namespace Northwind.EB.Sales.DTOs;
+﻿namespace Northwind.EB.Sales.Entities.DTOs;
 public class CreateOrderDetailDto
 {
     public int ProductId { get; }

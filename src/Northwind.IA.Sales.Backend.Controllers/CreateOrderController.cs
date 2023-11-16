@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
-using Northwind.EB.Sales.DTOs;
+using Northwind.EB.Sales.Entities.DTOs;
 using Northwind.EB.Sales.Entities.ValueObjetcs;
 
 namespace Microsoft.AspNetCore.Builder;
