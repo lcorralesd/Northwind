@@ -6,7 +6,7 @@ public class CreateOrderDto
     public string ShipCity { get; }
     public string ShipCountry { get; }
     public string ShipPostalCode { get; }
-    public List<CreateOrderDetailDto> OrderDetails { get; }
+    public IEnumerable<CreateOrderDetailDto> OrderDetails { get; }
 
     public CreateOrderDto(
         string customerId,
@@ -14,7 +14,7 @@ public class CreateOrderDto
         string shipCity,
         string shipCountry,
         string shipPostalCode,
-        List<CreateOrderDetailDto> orderDetails)
+        IEnumerable<CreateOrderDetailDto> orderDetails)
     {
         CustomerId = customerId;
         ShipAddress = shipAddress;
