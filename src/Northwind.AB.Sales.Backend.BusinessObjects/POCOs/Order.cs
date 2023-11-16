@@ -1,6 +1,4 @@
-﻿using Northwind.AB.Sales.Backend.BusinessObjects.Enums;
-
-namespace Northwind.AB.Sales.Backend.BusinessObjects.POCOs;
+﻿namespace Northwind.AB.Sales.Backend.BusinessObjects.POCOs;
 public class Order
 {
     public int Id { get; set; }
