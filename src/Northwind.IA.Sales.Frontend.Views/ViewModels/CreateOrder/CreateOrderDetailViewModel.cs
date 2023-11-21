@@ -1,4 +1,4 @@
-﻿namespace Northwind.IA.Sales.Frontend.Views.ViewModels;
+﻿namespace Northwind.IA.Sales.Frontend.Views.ViewModels.CreateOrder;
 public class CreateOrderDetailViewModel
 {
     public int ProductId { get; set; }

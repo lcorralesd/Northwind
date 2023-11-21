@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Northwind.IA.Sales.Frontend.Views.ViewModels;
+using Northwind.IA.Sales.Frontend.Views.ViewModels.CreateOrder;
 
 namespace Northwind.IA.Sales.Frontend.Views.Components;
 public partial class CreateOrderComponent
