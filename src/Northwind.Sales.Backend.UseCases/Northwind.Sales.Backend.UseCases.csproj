@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Northwind.EB.Sales.Entities.Validators\Northwind.EB.Sales.Entities.Validators.csproj" />
     <ProjectReference Include="..\Northwind.AB.Sales.Backend.BusinessObjects\Northwind.AB.Sales.Backend.BusinessObjects.csproj" />
   </ItemGroup>
 

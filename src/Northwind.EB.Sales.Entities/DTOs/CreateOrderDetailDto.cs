@@ -1,14 +1,14 @@
 ﻿namespace Northwind.EB.Sales.Entities.DTOs;
 public class CreateOrderDetailDto
 {
-    public int ProductId { get; }
-    public decimal UnitPrice { get; }
-    public short Quantity { get; }
+    public int ProductId { get; set; }
+    public decimal UnitPrice { get; set; }
+    public int Quantity { get; set; }
 
     public CreateOrderDetailDto(
         int productId,
         decimal unitPrice,
-        short quantity)
+        int quantity)
     {
         ProductId = productId;
         UnitPrice = unitPrice;

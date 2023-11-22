@@ -5,7 +5,7 @@ public class OrderAggregate : Order
 
     public IReadOnlyCollection<OrderDetail> OrderDetails => _orderDetails;
 
-    public void AddDetail(int productId, decimal unitPrice, short quantity)
+    public void AddDetail(int productId, decimal unitPrice, int quantity)
     {
         var existingOrderDetail = _orderDetails.FirstOrDefault(o => o.ProductId == productId);
 

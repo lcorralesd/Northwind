@@ -6,7 +6,9 @@ public static class DependencyContainer
     public static IServiceCollection AddNorthwindSalesServices(this IServiceCollection services,
         Action<DbOptions> configureOptions)
     {
-        services.AddNorthwindUseCasesServices()
+        services
+            .AddNorthwindValidators()
+            .AddNorthwindUseCasesServices()
             .AddRepositories(configureOptions)
             .AddPresenters();
 

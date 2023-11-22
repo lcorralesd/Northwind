@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Northwind.EB.Sales.Entities.Validators\Northwind.EB.Sales.Entities.Validators.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Frontend.Views\Northwind.IA.Sales.Frontend.Views.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Frontend.WebApiGateways\Northwind.IA.Sales.Frontend.WebApiGateways.csproj" />
   </ItemGroup>

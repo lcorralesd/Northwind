@@ -6,6 +6,7 @@ public static class DependencyContainer
         Action<HttpClient> configureClient)
     {
         services
+            .AddNorthwindValidators()
             .AddWebApiGateways(configureClient)
             .AddViewsServices();
 
