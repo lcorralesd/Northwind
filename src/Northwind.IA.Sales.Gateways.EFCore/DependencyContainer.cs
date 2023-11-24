@@ -8,6 +8,7 @@ public static class DependencyContainer
         services.AddDbContext<NorthwindSalesContext>();
 
         services.AddScoped<ICommandSalesRepository, CommandSalesRepository>();
+        services.AddScoped<IQuerySalesRepository, QuerySalesRepository>();
 
         return services;
     }

@@ -10,8 +10,10 @@ public class NorthwindSalesContext : DbContext
         optionsBuilder.UseSqlServer(_options.Value.ConnectionString);
     }
 
+    public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Entities.OrderDetail> OrderDetails { get; set; }
+    public DbSet<Product> Products { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

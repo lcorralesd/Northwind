@@ -8,3 +8,4 @@ global using Northwind.IA.Sales.Gateways.EFCore.Contexts;
 global using Northwind.IA.Sales.Gateways.EFCore.Options;
 global using Northwind.IA.Sales.Gateways.EFCore.Repositories;
 global using System.Reflection;
+global using Northwind.IA.Sales.Gateways.EFCore.Entities;

@@ -20,5 +20,9 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.Property(o => o.ShipPostalCode)
           .HasMaxLength(10);
+
+        builder.HasOne<Customer>()
+            .WithMany()
+            .HasForeignKey(o => o.CustomerId);
     }
 }
