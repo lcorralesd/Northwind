@@ -19,6 +19,10 @@ internal class CreateOrderGateway : ICreateOrderGateway
         {
             orderId = await response.Content.ReadFromJsonAsync<int>();
         }
+        else
+        {
+            throw new HttpRequestException(await response.Content.ReadAsStringAsync());
+        }
 
         return orderId;
     }

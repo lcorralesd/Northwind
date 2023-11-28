@@ -2,8 +2,14 @@
 public class CreateOrderViewModel
 {
     readonly ICreateOrderGateway _gateway;
+    readonly IModelValidator<CreateOrderViewModel> _validator;
 
-    public CreateOrderViewModel(ICreateOrderGateway gateway) => _gateway = gateway;
+    public CreateOrderViewModel(ICreateOrderGateway gateway, IModelValidator<CreateOrderViewModel> validator)
+    {
+        _gateway = gateway;
+        _validator = validator;
+
+    }
 
     public string CustomerId { get; set; }
     public string ShipAddress { get; set; }
@@ -11,6 +17,9 @@ public class CreateOrderViewModel
     public string ShipCountry { get; set; }
     public string ShipPostalCode { get; set; }
     public List<CreateOrderDetailViewModel> OrderDetails { get; set; } = new();
+
+    public IModelValidator<CreateOrderViewModel> Validator => _validator;
+         
 
     public string InformationMessage { get; private set; }
 

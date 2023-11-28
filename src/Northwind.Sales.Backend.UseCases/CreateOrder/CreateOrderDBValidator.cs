@@ -15,13 +15,13 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
 
     private async Task<bool> ValidateCustomer(CreateOrderDto model)
     {
-        var currentBalance = 
+        var currentBalance =
             await _salesRepository.GetCustomerCurrentBalance(model.CustomerId);
         if (currentBalance == null)
         {
             _validationErrors.Add(new ValidationError(nameof(model.CustomerId), CreateOrderMessages.CustomerIdNotFoundError));
         }
-        else if(currentBalance > 0)
+        else if (currentBalance > 0)
         {
             _validationErrors.Add(new ValidationError(nameof(model.CustomerId), string.Format(CreateOrderMessages.CustomerWithBalanceErrorTemplate, model.CustomerId, currentBalance)));
         }
@@ -31,7 +31,7 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
 
     private async Task<bool> ValidateProducts(CreateOrderDto model)
     {
-        IEnumerable<ProductUnitsInStock> requiredQuantities 
+        IEnumerable<ProductUnitsInStock> requiredQuantities
             = model.OrderDetails
             .GroupBy(d => d.ProductId)
             .Select(d => new ProductUnitsInStock(d.Key, d.Sum(d => d.Quantity)));
@@ -39,16 +39,16 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
         var productIds = requiredQuantities
             .Select(d => d.ProductId);
 
-        IEnumerable<ProductUnitsInStock> InStockQuantities = 
+        IEnumerable<ProductUnitsInStock> InStockQuantities =
             await _salesRepository.GetProductsUnitsInStock(productIds);
 
         var requiredVsInStock = requiredQuantities
             .GroupJoin(InStockQuantities,
             required => required.ProductId,
             inStock => inStock.ProductId,
-            (oneRequired, manyInStock) => new { oneRequired, manyInStock})
+            (oneRequired, manyInStock) => new { oneRequired, manyInStock })
             .SelectMany(groupResult => groupResult.manyInStock.DefaultIfEmpty(),
-            (groupResult, singleInStock) => 
+            (groupResult, singleInStock) =>
             new
             {
                 groupResult.oneRequired.ProductId,
@@ -56,18 +56,15 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
                 InStock = singleInStock?.UnitsInStock
             });
 
-        foreach(var item in requiredVsInStock)
+        foreach (var item in requiredVsInStock)
         {
             if (!item.InStock.HasValue)
             {
                 _validationErrors.Add(new ValidationError(nameof(item.ProductId), string.Format(CreateOrderMessages.ProductIdNotFoundTemplate, item.ProductId)));
             }
-            else
+            else if (item.InStock < item.Required)
             {
-                if(item.InStock < item.Required)
-                {
-                    _validationErrors.Add(new ValidationError(nameof(item.ProductId), string.Format(CreateOrderMessages.UnitsInStockLessThanQuantityErrorTemplate, item.Required, item.InStock, item.ProductId)));
-                }
+                _validationErrors.Add(new ValidationError(nameof(item.ProductId), string.Format(CreateOrderMessages.UnitsInStockLessThanQuantityErrorTemplate, item.Required, item.InStock, item.ProductId)));
             }
         }
 

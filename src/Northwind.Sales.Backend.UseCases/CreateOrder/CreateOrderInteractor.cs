@@ -3,24 +3,30 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
 {
     readonly ICreateOrderOutputPort _createOrderOutputPort;
     readonly ICommandSalesRepository _commandSalesRepository;
-    readonly IModelValidator<CreateOrderDto> _modelValidator;
+    readonly IEnumerable<IModelValidator<CreateOrderDto>> _modelValidators;
 
     public CreateOrderInteractor(ICreateOrderOutputPort createOrderOutputPort, ICommandSalesRepository commandSalesRepository,
-        IModelValidator<CreateOrderDto> modelValidator)
+        IEnumerable<IModelValidator<CreateOrderDto>> modelValidator)
     {
         _createOrderOutputPort = createOrderOutputPort;
         _commandSalesRepository = commandSalesRepository;
-        _modelValidator = modelValidator;
+        _modelValidators = modelValidator;
     }
 
     public async ValueTask Handle(CreateOrderDto createOrderDto)
     {
-        if (!await _modelValidator.Validate(createOrderDto))
-        {
-            string errors = string.Join(" ", _modelValidator.Errors
-                .Select(e => $"{e.PropertyName}: {e.Message}"));
+        var enumerator = _modelValidators.GetEnumerator();
+        bool isValid = true;
 
-            throw new Exception(errors);
+        while (isValid && enumerator.MoveNext()) 
+        {
+            isValid = await enumerator.Current.Validate(createOrderDto);
+            if (!isValid)
+            {
+                string errors = string.Join(" ", enumerator.Current.Errors
+                    .Select(e => $"{e.PropertyName}: {e.Message}"));
+                throw new Exception(errors);
+            }
         }
 
         var order = OrderAggregate.From(createOrderDto);

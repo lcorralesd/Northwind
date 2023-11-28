@@ -1,4 +1,6 @@
 ﻿<EditForm Model="Order" OnValidSubmit="Order.Send">
+    <ModelValidator Validator="Order.Validator"/>
+    <ValidationSummary/>
     <div class="form-group">
         <label for="customerId">
             @CreateOrderMessages.CustomerIdLabel
