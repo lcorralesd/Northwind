@@ -1,6 +1,6 @@
 ﻿@page "/createorder"
 
-<ErrorBoundary>
+<ErrorBoundary @ref="errorBoundaryRef">
     <ChildContent>
         <CreateOrderComponent Order="ViewModel"/>
     </ChildContent>
