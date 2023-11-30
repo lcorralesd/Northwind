@@ -10,7 +10,7 @@ public static class Startup
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddNorthwindSalesServices(dbOptions =>
-        builder.Configuration.GetSection(DbOptions.SectionKey).Bind(dbOptions));
+            builder.Configuration.GetSection(DbOptions.SectionKey).Bind(dbOptions));
 
         builder.Services.AddCors(options =>
         {
@@ -28,6 +28,7 @@ public static class Startup
 
     public static WebApplication ConfigureWebApplication(this WebApplication app)
     {
+        app.UseCustomExceptionHandlers();
         if(app.Environment.IsDevelopment())
         {
             app.UseSwagger();

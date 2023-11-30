@@ -1,7 +1,4 @@
-﻿using Northwind.AB.Sales.Backend.BusinessObjects.Aggregates;
-using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
-
-namespace Northwind.IA.Sales.Backend.Presenters;
+﻿namespace Northwind.IA.Sales.Backend.Presenters;
 internal class CreateOrderPresenter : ICreateOrderOutputPort
 {
     public int OrderId { get; private set; }

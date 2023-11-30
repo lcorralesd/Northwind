@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Northwind.EB.Sales.Entities.Validators\Northwind.EB.Sales.Entities.Validators.csproj" />
     <ProjectReference Include="..\Northwind.EB.Sales.Entities\Northwind.EB.Sales.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>

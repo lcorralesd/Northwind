@@ -23,9 +23,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
             isValid = await enumerator.Current.Validate(createOrderDto);
             if (!isValid)
             {
-                string errors = string.Join(" ", enumerator.Current.Errors
-                    .Select(e => $"{e.PropertyName}: {e.Message}"));
-                throw new Exception(errors);
+                throw new ValidationException(enumerator.Current.Errors);
             }
         }
 

@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Northwind.EB.Sales.Entities.Validators\Northwind.EB.Sales.Entities.Validators.csproj" />
     <ProjectReference Include="..\Northwind.AB.Sales.Frontend.BusinessObjects\Northwind.AB.Sales.Frontend.BusinessObjects.csproj" />
   </ItemGroup>
 

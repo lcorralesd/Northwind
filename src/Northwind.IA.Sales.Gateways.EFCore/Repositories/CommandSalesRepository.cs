@@ -21,6 +21,20 @@ public class CommandSalesRepository : ICommandSalesRepository
     }
     public async ValueTask SaveChanges() 
     {
-        await _context.SaveChangesAsync();
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new UnitOfWorkException(ex,
+                ex.Entries.Select(e => e.Entity.GetType().Name));
+        }
+
+        catch(Exception)
+        {
+            throw;
+        }
+        
     }
 }
