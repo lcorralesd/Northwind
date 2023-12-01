@@ -11,20 +11,9 @@ public static class DependencyContainer
 
         services.AddKeyedSingleton<object, UnitOfWorkExceptionHandler>(typeof(IExceptionHandler<>));
 
-        services.AddSingleton<ExceptionHandlerOrchestrator>();
+        services.AddExceptionHandler<ExceptionHandlerOrchestrator>();
+        services.AddExceptionHandler<UnhandledExceptionHandler>();
 
         return services;
-    }
-
-    public static WebApplication UseCustomExceptionHandlers(this WebApplication app)
-    {
-        var orchestrator = app.Services.GetRequiredService<ExceptionHandlerOrchestrator>();
-
-        app.UseExceptionHandler(buider =>
-        {
-            buider.Run(orchestrator.HandleException);
-        });
-
-        return app;
     }
 }

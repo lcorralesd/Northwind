@@ -58,18 +58,16 @@ public class ModelValidator<T> : ComponentBase
 
     async void ValidationRequested(object sender, ValidationRequestedEventArgs args)
     {
-        validationMessageStore.Clear();
         bool isValid = await Validator.Validate((T)EditContext.Model);
-        if (!isValid)
+        if (isValid)
         {
-            foreach (var error in Validator.Errors)
-            {
-                var fieldIdentifier = GetFieldIdentifier(EditContext.Model, error.PropertyName);
-
-                validationMessageStore.Add(fieldIdentifier, error.Message);
-            }
+            validationMessageStore.Clear();
+            EditContext.NotifyValidationStateChanged();
         }
-        EditContext.NotifyValidationStateChanged();
+        else
+        {
+            AddErrors(Validator.Errors);
+        }
     }
 
     async void FieldChanged(object sender, FieldChangedEventArgs args)
@@ -103,5 +101,16 @@ public class ModelValidator<T> : ComponentBase
             EditContext.OnValidationRequested += ValidationRequested;
             EditContext.OnFieldChanged += FieldChanged;
         }
+    }
+
+    public void AddErrors(IEnumerable<ValidationError> errors)
+    {
+        validationMessageStore.Clear();
+        foreach (var error in errors)
+        {
+            var fieldIdentifier = GetFieldIdentifier(EditContext.Model,error.PropertyName);
+            validationMessageStore.Add(fieldIdentifier, error.Message);
+        }
+        EditContext.NotifyValidationStateChanged();
     }
 }

@@ -15,15 +15,6 @@ internal class CreateOrderGateway : ICreateOrderGateway
         int orderId = 0;
         var response = await _httpClient.PostAsJsonAsync(Endpoints.CreateOrder, order);
 
-        //if (response.IsSuccessStatusCode)
-        //{
-        //    orderId = await response.Content.ReadFromJsonAsync<int>();
-        //}
-        //else
-        //{
-        //    throw new HttpRequestException(await response.Content.ReadAsStringAsync());
-        //}
-
         return orderId;
     }
 }
