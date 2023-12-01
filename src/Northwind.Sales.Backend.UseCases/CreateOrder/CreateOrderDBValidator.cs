@@ -60,11 +60,25 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
         {
             if (!item.InStock.HasValue)
             {
-                _validationErrors.Add(new ValidationError(nameof(item.ProductId), string.Format(CreateOrderMessages.ProductIdNotFoundTemplate, item.ProductId)));
+                CreateOrderDetailDto orderDetail =
+                    model.OrderDetails.First(i => i.ProductId == item.ProductId);
+
+                var index = model.OrderDetails.ToList().IndexOf(orderDetail);
+
+                string propertyName = $"{nameof(model.OrderDetails)}[{index}].{nameof(orderDetail.ProductId)}";
+
+                _validationErrors.Add(new ValidationError(propertyName, string.Format(CreateOrderMessages.ProductIdNotFoundTemplate, item.ProductId)));
             }
             else if (item.InStock < item.Required)
             {
-                _validationErrors.Add(new ValidationError(nameof(item.ProductId), string.Format(CreateOrderMessages.UnitsInStockLessThanQuantityErrorTemplate, item.Required, item.InStock, item.ProductId)));
+                CreateOrderDetailDto orderDetail =
+                    model.OrderDetails.First(i => i.ProductId == item.ProductId);
+
+                var index = model.OrderDetails.ToList().IndexOf(orderDetail);
+
+                string propertyName = $"{nameof(model.OrderDetails)}[{index}].{nameof(orderDetail.Quantity)}";
+
+                _validationErrors.Add(new ValidationError(propertyName, string.Format(CreateOrderMessages.UnitsInStockLessThanQuantityErrorTemplate, item.Required, item.InStock, item.ProductId)));
             }
         }
 

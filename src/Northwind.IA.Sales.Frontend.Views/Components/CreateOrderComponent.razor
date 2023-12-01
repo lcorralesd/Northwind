@@ -71,9 +71,11 @@
             </div>
             <div class="col">
                 <InputNumber class="form-control" @bind-Value="item.UnitPrice" />
+                <ValidationMessage For="() => item.UnitPrice" />
             </div>
             <div class="col">
                 <InputNumber class="form-control" @bind-Value="item.Quantity" />
+                <ValidationMessage For="() => item.Quantity" />
             </div>
         </div>
     }
