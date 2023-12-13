@@ -11,6 +11,7 @@
     <ProjectReference Include="..\Northwind.IA.Sales.Backend.Controllers\Northwind.IA.Sales.Backend.Controllers.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Backend.Presenters\Northwind.IA.Sales.Backend.Presenters.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Gateways.EFCore\Northwind.IA.Sales.Gateways.EFCore.csproj" />
+    <ProjectReference Include="..\Northwind.IA.Sales.Gateways.Smtp.Gateways\Northwind.IA.Sales.Gateways.Smtp.Gateways.csproj" />
     <ProjectReference Include="..\Northwind.Sales.Backend.UseCases\Northwind.Sales.Backend.UseCases.csproj" />
   </ItemGroup>
 

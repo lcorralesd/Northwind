@@ -1,4 +1,5 @@
 ﻿using Northwind.IA.Sales.Gateways.EFCore.Options;
+using Northwind.IA.Sales.Gateways.Smtp.Gateways.Options;
 
 namespace Northwind.FD.Sales.WebApi;
 
@@ -9,8 +10,11 @@ public static class Startup
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddNorthwindSalesServices(dbOptions =>
-            builder.Configuration.GetSection(DbOptions.SectionKey).Bind(dbOptions));
+        builder.Services.AddNorthwindSalesServices(
+            dbOptions =>
+                builder.Configuration.GetSection(DbOptions.SectionKey).Bind(dbOptions),
+            smtpOptions => 
+                builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtpOptions));
 
         builder.Services.AddCors(options =>
         {

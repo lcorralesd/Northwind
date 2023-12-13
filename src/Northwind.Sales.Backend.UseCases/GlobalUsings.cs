@@ -8,3 +8,5 @@ global using Northwind.EB.Sales.Entities.Validators.ValueObjects;
 global using Northwind.AB.Sales.Backend.BusinessObjects.ValueObjects;
 global using Northwind.Sales.Backend.UseCases.Resources;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Exceptions;
+global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Events;
+global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Common;

@@ -1,13 +1,13 @@
-﻿using Northwind.EB.Sales.Entities.Validators.Interfaces.Common;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
     public static IServiceCollection AddNorthwindUseCasesServices(this IServiceCollection services)
     {
+        services.AddScoped<ICreateOrderInputPort, CreateOrderInteractor>();
         services.AddScoped<IModelValidator<CreateOrderDto>, CreateOrderDBValidator>();
 
-        services.AddScoped<ICreateOrderInputPort, CreateOrderInteractor>();
+        services.AddScoped<IDomainEventHandler<SpecialOrderCreatedEvent>, SendEmailWhenSpecialOrderCreatedEventHandler>();
+
 
         return services;
     }

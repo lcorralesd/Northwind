@@ -88,6 +88,42 @@ namespace Northwind.Sales.Backend.UseCases.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Orden de compra {0} creada..
+        /// </summary>
+        internal static string PurchaseOrderCreatedTemplate {
+            get {
+                return ResourceManager.GetString("PurchaseOrderCreatedTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se ha creado la orden {0} con {1} productos.
+        /// </summary>
+        internal static string SendEmailBodyTemplate {
+            get {
+                return ResourceManager.GetString("SendEmailBodyTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orden especial creada..
+        /// </summary>
+        internal static string SendEmailSubject {
+            get {
+                return ResourceManager.GetString("SendEmailSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inicio de creación de orden de compra..
+        /// </summary>
+        internal static string StartingPurchaseOrderCreation {
+            get {
+                return ResourceManager.GetString("StartingPurchaseOrderCreation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cantidad {0} de {1} no suficiente para producto {2}.
         /// </summary>
         internal static string UnitsInStockLessThanQuantityErrorTemplate {
