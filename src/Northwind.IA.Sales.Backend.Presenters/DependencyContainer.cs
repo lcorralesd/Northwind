@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 public static class DependencyContainer
 {
     public static IServiceCollection AddPresenters(this IServiceCollection services)
@@ -11,8 +9,11 @@ public static class DependencyContainer
 
         services.AddKeyedSingleton<object, UnitOfWorkExceptionHandler>(typeof(IExceptionHandler<>));
 
+        services.AddKeyedSingleton<object, UnauthorizedAccessExceptionHandler>(typeof(IExceptionHandler<>));
+
         services.AddExceptionHandler<ExceptionHandlerOrchestrator>();
         services.AddExceptionHandler<UnhandledExceptionHandler>();
+
 
         return services;
     }

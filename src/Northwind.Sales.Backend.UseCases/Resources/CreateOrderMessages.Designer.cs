@@ -79,6 +79,15 @@ namespace Northwind.Sales.Backend.UseCases.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creación de la orden {0} cancelada..
+        /// </summary>
+        internal static string OrderCreationCancelledTemplate {
+            get {
+                return ResourceManager.GetString("OrderCreationCancelledTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El producto {0} no existe..
         /// </summary>
         internal static string ProductIdNotFoundTemplate {

@@ -6,9 +6,11 @@ public static class DependencyContainer
     {
         services.Configure(configureOptions);
         services.AddDbContext<NorthwindSalesContext>();
+        services.AddDbContext<NorthwindDomainLogsContext>();
 
         services.AddScoped<ICommandSalesRepository, CommandSalesRepository>();
         services.AddScoped<IQuerySalesRepository, QuerySalesRepository>();
+        services.AddScoped<IDomaiLogsRepository, DomainLogsRepository>();
 
         return services;
     }

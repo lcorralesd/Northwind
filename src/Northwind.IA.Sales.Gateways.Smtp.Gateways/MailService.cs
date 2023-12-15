@@ -34,6 +34,7 @@ internal class MailService(IOptions<SmtpOptions> smtpOptions,
 		catch (Exception ex)
 		{
 			logger.LogError(ex.Message, ex.Message);
+			throw;
 		}
     }
 }

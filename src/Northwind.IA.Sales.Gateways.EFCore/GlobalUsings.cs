@@ -10,3 +10,4 @@ global using Northwind.IA.Sales.Gateways.EFCore.Repositories;
 global using System.Reflection;
 global using Northwind.IA.Sales.Gateways.EFCore.Entities;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Exceptions;
+global using Microsoft.EntityFrameworkCore.Design;

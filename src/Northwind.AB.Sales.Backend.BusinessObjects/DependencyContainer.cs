@@ -5,6 +5,9 @@ public static class DependencyContainer
     {
         services.AddScoped(typeof(IDomainEventHub<>), typeof(DomainEventHub<>));
         services.AddScoped<IDomainLogger, DomainLogger>();
+        services.AddTransient<IDomainTransaction, DomainTransaction>();
+        services.AddHttpContextAccessor();
+        services.AddScoped<IUserService, UserServiceFake>();
 
         return services;
     }
