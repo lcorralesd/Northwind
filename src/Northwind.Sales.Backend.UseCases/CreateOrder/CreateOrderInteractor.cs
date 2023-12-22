@@ -2,7 +2,7 @@
 internal class CreateOrderInteractor(
     ICreateOrderOutputPort createOrderOutputPort,
     ICommandSalesRepository commandSalesRepository,
-    IEnumerable<IModelValidator<CreateOrderDto>> modelValidator,
+    IModelValidatorService<CreateOrderDto> validatorService,
     IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub,
     IDomainLogger domainLogger,
     IDomainTransaction domainTransaction,
@@ -14,14 +14,8 @@ internal class CreateOrderInteractor(
         if (!userService.IsAuthenticated)
             throw new UnauthorizedAccessException();
 
-        var enumerator = modelValidator.GetEnumerator();
-        bool isValid = true;
-
-        while (isValid && enumerator.MoveNext())
-            isValid = await enumerator.Current.Validate(createOrderDto);
-
-        if (!isValid)
-            throw new ValidationException(enumerator.Current.Errors);
+        if (!await validatorService.Validate(createOrderDto))
+            throw new ValidationException(validatorService.Errors);
 
         await domainLogger.LogInformation(new DomainLog(CreateOrderMessages.StartingPurchaseOrderCreation, userService.UserName));
 

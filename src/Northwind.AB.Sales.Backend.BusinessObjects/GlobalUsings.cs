@@ -1,6 +1,7 @@
-﻿global using Microsoft.AspNetCore.Mvc;
+﻿global using Microsoft.AspNetCore.Http;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Aggregates;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Enums;
+global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Authentication;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Events;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Logging;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Repositories;
@@ -9,7 +10,5 @@ global using Northwind.AB.Sales.Backend.BusinessObjects.POCOs;
 global using Northwind.AB.Sales.Backend.BusinessObjects.Services;
 global using Northwind.AB.Sales.Backend.BusinessObjects.ValueObjects;
 global using Northwind.EB.Sales.Entities.DTOs;
-global using Northwind.EB.Sales.Entities.Validators.ValueObjects;
+global using Northwind.Validation.Entities.ValueObjects;
 global using System.Linq.Expressions;
-global using Microsoft.AspNetCore.Http;
-global using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.Authentication;

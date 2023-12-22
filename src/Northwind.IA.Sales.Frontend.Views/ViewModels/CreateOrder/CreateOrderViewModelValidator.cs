@@ -1,4 +1,7 @@
-﻿namespace Northwind.IA.Sales.Frontend.Views.ViewModels.CreateOrder;
+﻿using Northwind.Validation.Entities.Interfaces;
+using Northwind.Validation.Entities.ValueObjects;
+
+namespace Northwind.IA.Sales.Frontend.Views.ViewModels.CreateOrder;
 internal class CreateOrderViewModelValidator : IModelValidator<CreateOrderViewModel>
 {
     readonly IModelValidator<CreateOrderDto> _validator;

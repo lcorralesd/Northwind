@@ -8,10 +8,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Northwind.EB.Sales.Entities.Validators\Northwind.EB.Sales.Entities.Validators.csproj" />
+    <ProjectReference Include="..\Northwind.AB.Membership.UseCases\Northwind.AB.Membership.UseCases.csproj" />
+    <ProjectReference Include="..\Northwind.IA.Membership.Backend.AspNetIdentity\Northwind.IA.Membership.Backend.AspNetIdentity.csproj" />
+    <ProjectReference Include="..\Northwind.IA.Membership.Backend.Controller\Northwind.IA.Membership.Backend.Controller.csproj" />
+    <ProjectReference Include="..\Northwind.IA.Membership.Backend.Presenters\Northwind.IA.Membership.Backend.Presenters.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Backend.Controllers\Northwind.IA.Sales.Backend.Controllers.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Backend.Presenters\Northwind.IA.Sales.Backend.Presenters.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Gateways.EFCore\Northwind.IA.Sales.Gateways.EFCore.csproj" />
     <ProjectReference Include="..\Northwind.IA.Sales.Gateways.Smtp.Gateways\Northwind.IA.Sales.Gateways.Smtp.Gateways.csproj" />
+    <ProjectReference Include="..\Northwind.Membership.Entities.Validators\Northwind.Membership.Entities.Validators.csproj" />
     <ProjectReference Include="..\Northwind.Sales.Backend.UseCases\Northwind.Sales.Backend.UseCases.csproj" />
   </ItemGroup>
 

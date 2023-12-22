@@ -1,4 +1,7 @@
-﻿namespace Northwind.EB.Sales.Entities.Validators.Validators.CreateOrder;
+﻿using FluentValidation;
+using Northwind.Validation.Entities.Abstractions;
+
+namespace Northwind.EB.Sales.Entities.Validators.Validators.CreateOrder;
 internal class CreateOrderDtoValidator : ValidatorBase<CreateOrderDto>
 {
     public CreateOrderDtoValidator()

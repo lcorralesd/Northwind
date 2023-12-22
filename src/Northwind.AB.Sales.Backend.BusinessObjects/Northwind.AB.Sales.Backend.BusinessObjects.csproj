@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,11 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Northwind.EB.Sales.Entities.Validators\Northwind.EB.Sales.Entities.Validators.csproj" />
+    <ProjectReference Include="..\Northwind.EB.Exceptions.Entities\Northwind.EB.Exceptions.Entities.csproj" />
     <ProjectReference Include="..\Northwind.EB.Sales.Entities\Northwind.EB.Sales.Entities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>

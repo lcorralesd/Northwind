@@ -1,4 +1,4 @@
-﻿using Northwind.EB.Sales.Entities.Validators.ValueObjects;
+﻿using Northwind.Validation.Entities.ValueObjects;
 using System.Text.Json;
 
 namespace Northwind.IA.Sales.Frontend.WebApiGateways;

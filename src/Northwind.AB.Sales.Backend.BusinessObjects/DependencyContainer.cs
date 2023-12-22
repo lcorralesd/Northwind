@@ -7,7 +7,7 @@ public static class DependencyContainer
         services.AddScoped<IDomainLogger, DomainLogger>();
         services.AddTransient<IDomainTransaction, DomainTransaction>();
         services.AddHttpContextAccessor();
-        services.AddScoped<IUserService, UserServiceFake>();
+        services.AddScoped<IUserService, UserService>();
 
         return services;
     }

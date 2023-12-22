@@ -5,15 +5,13 @@ public static class DependencyContainer
     {
         services.AddScoped<ICreateOrderOutputPort, CreateOrderPresenter>();
 
-        services.AddKeyedSingleton<object, ValidationExceptionHandler>(typeof(IExceptionHandler<>));
+        services.AddCustomExceptionHandler<ValidationException, ValidationExceptionHandler>();
 
-        services.AddKeyedSingleton<object, UnitOfWorkExceptionHandler>(typeof(IExceptionHandler<>));
+        services.AddCustomExceptionHandler<UnitOfWorkException, UnitOfWorkExceptionHandler>();
 
-        services.AddKeyedSingleton<object, UnauthorizedAccessExceptionHandler>(typeof(IExceptionHandler<>));
+        services.AddCustomExceptionHandler<UnauthorizedAccessException, UnauthorizedAccessExceptionHandler>();
 
-        services.AddExceptionHandler<ExceptionHandlerOrchestrator>();
-        services.AddExceptionHandler<UnhandledExceptionHandler>();
-
+        services.AddUnhandledExceptionHandler();
 
         return services;
     }

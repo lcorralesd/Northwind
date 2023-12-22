@@ -80,24 +80,6 @@ namespace Northwind.IA.Sales.Backend.Presenters.ExceptionHandlers.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Consulte al administrador..
-        /// </summary>
-        internal static string UnhandledExceptionDetail {
-            get {
-                return ResourceManager.GetString("UnhandledExceptionDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to El servicio no se encuentra disponible..
-        /// </summary>
-        internal static string UnhandledExceptionTitle {
-            get {
-                return ResourceManager.GetString("UnhandledExceptionTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Se encontraron uno o más errores de actualización de datos. Consulte al administrador..
         /// </summary>
         internal static string UnitOfWorkExceptionDetail {

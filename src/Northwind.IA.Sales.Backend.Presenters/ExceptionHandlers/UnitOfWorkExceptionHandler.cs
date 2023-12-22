@@ -1,4 +1,6 @@
-﻿namespace Northwind.IA.Sales.Backend.Presenters.ExceptionHandlers;
+﻿using Northwind.EB.Exceptions.Entities.Interfaces;
+
+namespace Northwind.IA.Sales.Backend.Presenters.ExceptionHandlers;
 internal class UnitOfWorkExceptionHandler : IExceptionHandler<UnitOfWorkException>
 {
     readonly ILogger<UnitOfWorkExceptionHandler> _logger;

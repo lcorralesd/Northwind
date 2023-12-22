@@ -1,0 +1,10 @@
+﻿global using Microsoft.AspNetCore.Diagnostics;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Northwind.EB.Exceptions.Entities.ExceptionHandlers;
+global using Northwind.EB.Exceptions.Entities.Extensions;
+global using Northwind.EB.Exceptions.Entities.Interfaces;
+global using Northwind.EB.Exceptions.Entities.Resources;
+global using System.Text.Json;

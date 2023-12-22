@@ -1,4 +1,7 @@
-﻿namespace Northwind.IA.Sales.Frontend.Views.Components;
+﻿using Northwind.Validation.Entities.Interfaces;
+using Northwind.Validation.Entities.ValueObjects;
+
+namespace Northwind.IA.Sales.Frontend.Views.Components;
 public class ModelValidator<T> : ComponentBase
 {
     [CascadingParameter]

@@ -1,4 +1,6 @@
 ﻿using Northwind.IA.Sales.Frontend.Views.Components;
+using Northwind.Validation.Entities.Interfaces;
+using Northwind.Validation.Entities.ValueObjects;
 
 namespace Northwind.IA.Sales.Frontend.Views.ViewModels.CreateOrder;
 public class CreateOrderViewModel

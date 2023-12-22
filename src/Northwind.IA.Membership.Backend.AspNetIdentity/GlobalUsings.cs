@@ -1,0 +1,15 @@
+﻿global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Options;
+global using Northwind.AB.Membership.Backend.BusinessObjects.DTOs;
+global using Northwind.AB.Membership.Backend.BusinessObjects.Interfaces.Common;
+global using Northwind.IA.Membership.Backend.AspNetIdentity.Entities;
+global using Northwind.IA.Membership.Backend.AspNetIdentity.Options;
+global using Northwind.Membership.Entities.DTOS.UserLogin;
+global using Northwind.Membership.Entities.DTOS.UserRegistration;
+global using Northwind.Result.Entities;
+global using Northwind.Validation.Entities.ValueObjects;
+global using Northwind.IA.Membership.Backend.AspNetIdentity.Resources;
+global using Northwind.IA.Membership.Backend.AspNetIdentity.Contexts;
+global using Northwind.IA.Membership.Backend.AspNetIdentity.Services;

@@ -123,12 +123,6 @@
   <data name="UnauthorizedAccessExceptionTitle" xml:space="preserve">
     <value>Acceso no autorizado.</value>
   </data>
-  <data name="UnhandledExceptionDetail" xml:space="preserve">
-    <value>Consulte al administrador.</value>
-  </data>
-  <data name="UnhandledExceptionTitle" xml:space="preserve">
-    <value>El servicio no se encuentra disponible.</value>
-  </data>
   <data name="UnitOfWorkExceptionDetail" xml:space="preserve">
     <value>Se encontraron uno o más errores de actualización de datos. Consulte al administrador.</value>
   </data>

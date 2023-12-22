@@ -1,18 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Northwind.AB.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
-using Northwind.EB.Sales.Entities.DTOs;
-using Northwind.EB.Sales.Entities.ValueObjetcs;
-
-namespace Microsoft.AspNetCore.Builder;
+﻿namespace Microsoft.AspNetCore.Builder;
 public static class CreateOrderController
 {
     public static WebApplication UseCreateOrderController(this WebApplication app)
     {
-        app.MapPost(Endpoints.CreateOrder,
-            async (CreateOrderDto orderDto,
-        ICreateOrderInputPort inputPort,
-        ICreateOrderOutputPort presenter) =>
-            Results.Ok(await CreateOrder(orderDto, inputPort, presenter)));
+        app.MapPost(Endpoints.CreateOrder, CreateOrder)
+            .RequireAuthorization();
 
         return app;
     }

@@ -1,0 +1,12 @@
+﻿global using Northwind.AB.Membership.Backend.BusinessObjects.DTOs;
+global using Northwind.AB.Membership.Backend.BusinessObjects.Interfaces.Common;
+global using Northwind.AB.Membership.Backend.BusinessObjects.Interfaces.UserLogin;
+global using Northwind.AB.Membership.Backend.BusinessObjects.Interfaces.UserRegistration;
+global using Northwind.AB.Membership.UseCases.UserLogin;
+global using Northwind.AB.Membership.UseCases.UserLogin.Resources;
+global using Northwind.AB.Membership.UseCases.UserRegistration;
+global using Northwind.Membership.Entities.DTOS.UserLogin;
+global using Northwind.Membership.Entities.DTOS.UserRegistration;
+global using Northwind.Result.Entities;
+global using Northwind.Validation.Entities.Interfaces;
+global using Northwind.Validation.Entities.ValueObjects;
